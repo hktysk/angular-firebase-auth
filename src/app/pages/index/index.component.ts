@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 import {
   TIndexComponent as Template
 } from '../../components/templates/t-index/t-index.component';
@@ -8,7 +9,9 @@ import {
   templateUrl: './index.component.html',
 })
 export class IndexComponent implements OnInit {
-  constructor(){}
+  constructor(
+    public auth: AuthService
+  ){}
 
   ngOnInit() {}
 
@@ -20,17 +23,17 @@ export class IndexComponent implements OnInit {
       {
         icon: 'assets/img/sns-icons/google.png',
         text: 'Google',
-        onClick: () => {}
+        onClick: () => this.auth.googleSignIn()
       },
       {
         icon: 'assets/img/sns-icons/github.png',
         text: 'Github',
-        onClick: () => {}
+        onClick: () => this.auth.gitHubSignIn()
       },
       {
         icon: 'assets/img/sns-icons/twitter.png',
         text: 'Twitter',
-        onClick: () => {}
+        onClick: () => this.auth.twitterSignIn()
       },
     ]
   }
