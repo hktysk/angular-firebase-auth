@@ -1,0 +1,19 @@
+<div class="Index">
+  <h1 class="Index__title">
+    Welcome to<br />
+    SampleTodo
+  </h1>
+
+  <div class="Index__main">
+    <div *ngFor="let button of buttons"
+      class="Index__button"
+      (click)="button.onClick()"
+    >
+      <img class="Index__icon" [src]="button.icon" />
+      {{ button.text }}
+
+      <span class="material-icons">chevron_right</span>
+    </div>
+  </div>
+</div>
+
